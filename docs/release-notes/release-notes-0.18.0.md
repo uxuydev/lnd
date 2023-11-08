@@ -28,6 +28,14 @@
 * LND will now [enforce pong responses
   ](https://github.com/lightningnetwork/lnd/pull/7828) from its peers
 
+* [Fixed a possible unintended RBF
+  attempt](https://github.com/lightningnetwork/lnd/pull/8091) when sweeping new
+  inputs with retried ones.
+
+* [Fixed](https://github.com/lightningnetwork/lnd/pull/7811) a case where `lnd`
+  might panic due to empty witness data found in a transaction. More details
+  can be found [here](https://github.com/bitcoin/bitcoin/issues/28730).
+
 # New Features
 ## Functional Enhancements
 
@@ -62,6 +70,9 @@
 * [Deprecated](https://github.com/lightningnetwork/lnd/pull/7175)
   `StatusUnknown` from the payment's rpc response in its status and replaced it
   with `StatusInitiated` to explicitly report its current state.
+* [Add an option to sign/verify a tagged
+  hash](https://github.com/lightningnetwork/lnd/pull/8106) to the
+  signer.SignMessage/signer.VerifyMessage RPCs.
 
 ## lncli Updates
 ## Code Health
@@ -78,6 +89,10 @@
 # Technical and Architectural Updates
 ## BOLT Spec Updates
 ## Testing
+
+* Added fuzz tests for [onion
+  errors](https://github.com/lightningnetwork/lnd/pull/7669).
+
 ## Database
 
 * [Add context to InvoiceDB
@@ -98,5 +113,7 @@
 * Carla Kirk-Cohen
 * Elle Mouton
 * Keagan McClelland
+* Matt Morehouse
+* Turtle
 * Ononiwu Maureen Chiamaka
 * Yong Yu
